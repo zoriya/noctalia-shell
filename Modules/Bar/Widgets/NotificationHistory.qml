@@ -124,6 +124,8 @@ Item {
     // prevent open via mouse over
     forceClose: NotificationService.activeList.count == 0
 
+    opacity: NotificationService.doNotDisturb || computeUnreadCount() > 0 ? 100 : 0
+
     onClicked: {
       var panel = PanelService.getPanel("notificationHistoryPanel", screen);
       panel?.toggle(this);
